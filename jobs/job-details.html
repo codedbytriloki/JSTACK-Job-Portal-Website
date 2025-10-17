@@ -17,7 +17,7 @@
       <a href="../index.html"><img src="../images/logo.png" class="logo"></a>
       <ul id="menu">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="#">Browse Jobs</a></li>
+        <li><a href="../jobs/job.html">Browse Jobs</a></li>
         <li><a href="../jobs/job.html">Contact</a></li>
         <button id="w-btn">Join</button>
       </ul>
@@ -25,21 +25,9 @@
     </div>
    </header>
  
-  <!-- Job Library Section -->
-   <section class="jobs obj-width sec-space extra-space">
-      <h2>Jobs in demand</h2>
-      <p>Most viwed and all-time top-selling services</p>
-
-      <form>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search Jobs" id="searchBar">
-      </form>
-
-      <div class="job-container" id="root">
-        
-      </div>
-   </section>
- 
+  <div id="jobDetails" class="extra-space obj-width">
+    
+  </div>
    
   <section class="footer sec-space">
     <footer class="section-p1  obj-width">
@@ -88,6 +76,71 @@
     </div>
   </footer>
   </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParam = new URLSearchParams(window.location.search);
+      const index = urlParam.get("id");
+      const selectJob = jCategory[index];
+      const jobDetailsContainer = document.getElementById("jobDetails");
+
+      jobDetailsContainer.innerHTML 
+      = 
+      `
+      <div class="job-header">
+      <div class="job-img-row">
+        <img src=${selectJob.image} alt="">
+        <div>
+          <h2>${selectJob.company}</h2>
+          <span>${selectJob.location}</span>
+        </div>
+      </div>
+      <a id="g-btn" href="#">Apply Now</a>
+    </div>
+    <div class="features sec-space obj-width">
+    <div class="fe-box">
+      <div>
+        <img src="../images/vacancy.png" alt="">
+        <h3>Vacancy</h3>
+        <p>${selectJob.vacancy} vacancy</p>
+      </div>
+      <div>
+        <img src="../images/fe 1.png" alt="">
+        <h3>Position</h3>
+        <p>${selectJob.title}</p>
+      </div>
+      <div>
+        <img src="../images/hour.png" alt="">
+        <h3>Hours</h3>
+        <p>${selectJob.hours}</p>
+      </div>
+      <div>
+        <img src="../images/salary.png" alt="">
+        <h3>Salary</h3>
+        <p>${selectJob.rate}</p>
+      </div>
+    </div>
+  </div>
+   <div class="job-description">
+    <h3>Job Description</h3>
+    <p>${selectJob.description}</p>
+
+    <h3>Employment Status</h3>
+    <p>- ${selectJob.av}</p>
+
+    <h3>Workplace</h3>
+    <p>- ${selectJob.workplace}</p>
+
+    <h3>Educational Requirements</h3>
+    <p>- ${selectJob.education}</p>
+
+    <h3>Experience Requirements</h3>
+    <p>- ${selectJob.experience}</p>
+
+   </div>
+      `
+    })
+  </script>
 
    <script src="job-list.js"></script>
    <script src="../script.js"></script>

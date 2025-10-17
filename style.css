@@ -451,6 +451,34 @@ footer a:hover {
   font-size: 1.1rem;
 }
 
+/* job details page */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fcfa;
+  border: 1px solid #51a995;
+  border-radius: 38px;
+  padding: 2rem;
+}
+
+.job-img-row {
+  display: flex;
+  align-items: center;
+}
+
+.job-header img {
+  width: 100px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-right: 2rem;
+}
+
+.job-description p {
+  padding-bottom: 2rem;
+}
+
 @media (max-width:699px) {
   #menu {
     display: block;
@@ -563,6 +591,23 @@ footer a:hover {
 
   .skill {
     padding-bottom: 1rem;
+  }
+
+  /* job-details */
+  .job-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .job-img-row {
+    margin-bottom: 1.5rem;
+  }
+
+  .job-header img {
+    padding: 0;
+    border-radius: 10px;
   }
 
 }
